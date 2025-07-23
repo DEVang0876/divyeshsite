@@ -108,9 +108,20 @@ const Hero = () => {
               {/* Neon glow effect */}
               <div className="absolute inset-0 bg-sky-500/20 blur-xl" />
 
-              {/* Cartoon Sparkling Electrical Effect */}
+              {/* Animated video background */}
+              <video
+                className="absolute inset-0 w-full h-full object-cover rounded-full z-0"
+                src={require('../assets/background.mp4')}
+                autoPlay
+                loop
+                muted
+                playsInline
+                style={{ filter: 'blur(8px) brightness(0.7)' }}
+              />
+
+              {/* Lightning SVG animation */}
               <svg
-                className="absolute inset-0 w-full h-full pointer-events-none"
+                className="absolute inset-0 w-full h-full pointer-events-none z-10"
                 viewBox="0 0 420 420"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -160,7 +171,7 @@ const Hero = () => {
               </svg>
 
               {/* Image container */}
-              <div className="absolute inset-16 md:inset-20 rounded-full overflow-hidden border-2 border-sky-500/30 flex items-center justify-center">
+              <div className="absolute inset-16 md:inset-20 rounded-full overflow-hidden border-2 border-sky-500/30 flex items-center justify-center z-20">
                 <img
                   src={dhairya}
                   alt="Divyesh"
