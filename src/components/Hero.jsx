@@ -140,6 +140,51 @@ const Hero = () => {
                 />
               ))}
 
+              {/* Thunderstorm Sparks Effect */}
+              <motion.svg
+                className="absolute inset-0 w-full h-full pointer-events-none"
+                viewBox="0 0 420 420"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                {Array.from({ length: 12 }).map((_, i) => {
+                  // Randomize start/end points around the circle
+                  const angle = (i / 12) * 2 * Math.PI;
+                  const startX = 210 + 110 * Math.cos(angle);
+                  const startY = 210 + 110 * Math.sin(angle);
+                  const midX = startX + Math.random() * 30 - 15;
+                  const midY = startY + Math.random() * 30 - 15;
+                  const endX = startX + Math.random() * 60 - 30;
+                  const endY = startY + Math.random() * 60 - 30;
+                  return (
+                    <motion.polyline
+                      key={i}
+                      points={`${startX},${startY} ${midX},${midY} ${endX},${endY}`}
+                      stroke="#87CEEB"
+                      strokeWidth={2 + Math.random()}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      initial={{ opacity: 0, pathLength: 0 }}
+                      animate={{ 
+                        opacity: [0, 1, 0], 
+                        pathLength: [0, 1, 0],
+                        filter: [
+                          'drop-shadow(0 0 8px #87CEEB)',
+                          'drop-shadow(0 0 16px #fff)',
+                          'drop-shadow(0 0 8px #87CEEB)'
+                        ]
+                      }}
+                      transition={{
+                        repeat: Infinity,
+                        duration: 0.7 + Math.random(),
+                        delay: Math.random() * 1.5,
+                        ease: 'easeInOut'
+                      }}
+                    />
+                  );
+                })}
+              </motion.svg>
+
               {/* Image container */}
               <div className="absolute inset-16 md:inset-20 rounded-full overflow-hidden border-2 border-sky-500/30 flex items-center justify-center">
                 <img
