@@ -67,8 +67,7 @@ const Hero = () => {
                 <span className="text-sky-500">Divyesh</span>
               </motion.h1>
               <motion.p className="text-base md:text-lg text-gray-300 max-w-lg font-fira">
-                I excel at crafting elegant digital experiences that combine
-                technical precision with creative innovation.
+                I excel at designing intelligent electrical systems that fuse technical precision with a passion for innovation in sustainable mobility and electric vehicles.
               </motion.p>
             </motion.div>
 
