@@ -75,7 +75,7 @@ const Navbar = () => {
             className="text-2xl font-bold font-poppins"
           >
             <Link to="/" className="text-white hover:text-sky-500 transition-colors duration-300">
-              Devang<span className="text-sky-500">.</span>
+              Divyesh<span className="text-sky-500">.</span>
             </Link>
           </motion.div>
 

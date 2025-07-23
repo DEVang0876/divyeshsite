@@ -64,7 +64,7 @@ const Hero = () => {
               </motion.span>
               <motion.h1 className="text-3xl md:text-6xl font-bold font-fira">
                 Hello I'm{' '}
-                <span className="text-sky-500">Devang</span>
+                <span className="text-sky-500">Divyesh</span>
               </motion.h1>
               <motion.p className="text-base md:text-lg text-gray-300 max-w-lg font-fira">
                 I excel at crafting elegant digital experiences that combine
@@ -189,7 +189,7 @@ const Hero = () => {
               <div className="absolute inset-16 md:inset-20 rounded-full overflow-hidden border-2 border-sky-500/30 flex items-center justify-center">
                 <img
                   src={dhairya}
-                  alt="Devang"
+                  alt="Divyesh"
                   className="w-[6rem] md:w-[8rem] object-cover"
                 />
               </div>
