@@ -115,14 +115,44 @@ const Hero = () => {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                {/* Example spark shapes */}
-                <polyline points="210,40 220,60 200,80 230,100" stroke="#FFD700" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-                <polyline points="60,210 80,220 60,240 90,260" stroke="#87CEEB" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                <polyline points="350,210 370,230 350,250 380,270" stroke="#FFD700" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                <polyline points="210,380 220,360 200,340 230,320" stroke="#87CEEB" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-                <polyline points="120,60 140,80 120,100" stroke="#FFD700" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                <polyline points="300,60 320,80 300,100" stroke="#87CEEB" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                {/* Add more for density and fun */}
+                {/* Animated electrical sparks */}
+                {[...Array(10)].map((_, i) => {
+                  // Randomize position and shape for each spark
+                  const angle = (i / 10) * 2 * Math.PI;
+                  const r = 170 + Math.random() * 20;
+                  const x1 = 210 + r * Math.cos(angle);
+                  const y1 = 210 + r * Math.sin(angle);
+                  const x2 = x1 + Math.random() * 30 - 15;
+                  const y2 = y1 + Math.random() * 30 - 15;
+                  const x3 = x2 + Math.random() * 30 - 15;
+                  const y3 = y2 + Math.random() * 30 - 15;
+                  return (
+                    <motion.polyline
+                      key={i}
+                      points={`${x1},${y1} ${x2},${y2} ${x3},${y3}`}
+                      stroke={i % 2 === 0 ? "#FFD700" : "#87CEEB"}
+                      strokeWidth={3 + Math.random()}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      initial={{ opacity: 0, pathLength: 0 }}
+                      animate={{
+                        opacity: [0, 1, 0],
+                        pathLength: [0, 1, 0],
+                        filter: [
+                          'drop-shadow(0 0 8px #FFD700)',
+                          'drop-shadow(0 0 16px #87CEEB)',
+                          'drop-shadow(0 0 8px #FFD700)'
+                        ]
+                      }}
+                      transition={{
+                        repeat: Infinity,
+                        duration: 0.7 + Math.random(),
+                        delay: Math.random() * 1.5,
+                        ease: 'easeInOut'
+                      }}
+                    />
+                  );
+                })}
               </svg>
 
               {/* Image container */}
