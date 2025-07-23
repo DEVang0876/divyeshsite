@@ -150,7 +150,7 @@ const Hero = () => {
                       }}
                       transition={{
                         repeat: Infinity,
-                        duration: 0.6 + Math.random(),
+                        duration: 0.9 + Math.random(),
                         delay: Math.random() * 1.2,
                         ease: 'easeInOut'
                       }}
