@@ -109,27 +109,36 @@ const Hero = () => {
               {/* Neon glow effect */}
               <div className="absolute inset-0 bg-sky-500/20 blur-xl" />
 
-              {/* Futuristic Electric Sparks */}
-              <motion.svg
-                className="absolute inset-0 w-full h-full pointer-events-none"
-                viewBox="0 0 420 420"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                initial={{ opacity: 0.8 }}
-                animate={{ opacity: [0.8, 1, 0.8], filter: ['drop-shadow(0 0 8px #87CEEB)', 'drop-shadow(0 0 16px #fff)', 'drop-shadow(0 0 8px #87CEEB)'] }}
-                transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
-              >
-                {/* Multiple small sparks around the circle */}
-                <motion.polyline points="210,20 220,40 200,60" stroke="#87CEEB" strokeWidth="2" initial={{ pathLength: 0 }} animate={{ pathLength: [0, 1, 0] }} transition={{ repeat: Infinity, duration: 1, delay: 0.1 }} />
-                <motion.polyline points="60,210 80,220 60,240" stroke="#fff" strokeWidth="1.5" initial={{ pathLength: 0 }} animate={{ pathLength: [0, 1, 0] }} transition={{ repeat: Infinity, duration: 0.8, delay: 0.3 }} />
-                <motion.polyline points="350,210 370,230 350,250" stroke="#87CEEB" strokeWidth="1.5" initial={{ pathLength: 0 }} animate={{ pathLength: [0, 1, 0] }} transition={{ repeat: Infinity, duration: 1.2, delay: 0.5 }} />
-                <motion.polyline points="210,400 220,380 200,360" stroke="#fff" strokeWidth="1.5" initial={{ pathLength: 0 }} animate={{ pathLength: [0, 1, 0] }} transition={{ repeat: Infinity, duration: 1, delay: 0.7 }} />
-                <motion.polyline points="400,210 380,220 400,240" stroke="#87CEEB" strokeWidth="2" initial={{ pathLength: 0 }} animate={{ pathLength: [0, 1, 0] }} transition={{ repeat: Infinity, duration: 0.9, delay: 0.9 }} />
-                <motion.polyline points="20,210 40,230 20,250" stroke="#fff" strokeWidth="1.5" initial={{ pathLength: 0 }} animate={{ pathLength: [0, 1, 0] }} transition={{ repeat: Infinity, duration: 1.1, delay: 1.1 }} />
-                <motion.polyline points="120,60 140,80 120,100" stroke="#87CEEB" strokeWidth="1.5" initial={{ pathLength: 0 }} animate={{ pathLength: [0, 1, 0] }} transition={{ repeat: Infinity, duration: 1.3, delay: 1.3 }} />
-                <motion.polyline points="300,60 320,80 300,100" stroke="#fff" strokeWidth="1.5" initial={{ pathLength: 0 }} animate={{ pathLength: [0, 1, 0] }} transition={{ repeat: Infinity, duration: 1.4, delay: 1.5 }} />
-                {/* Add more for density */}
-              </motion.svg>
+              {/* Jumping Electrons Effect */}
+              {Array.from({ length: 18 }).map((_, i) => (
+                <motion.div
+                  key={i}
+                  className="absolute rounded-full bg-sky-400 shadow-lg"
+                  style={{
+                    width: '0.7rem',
+                    height: '0.7rem',
+                    left: `${200 + 110 * Math.cos((i / 18) * 2 * Math.PI)}px`,
+                    top: `${200 + 110 * Math.sin((i / 18) * 2 * Math.PI)}px`,
+                    zIndex: 2,
+                  }}
+                  animate={{
+                    x: [0, Math.random() * 20 - 10, 0],
+                    y: [0, Math.random() * 20 - 10, 0],
+                    boxShadow: [
+                      '0 0 8px #87CEEB',
+                      '0 0 16px #fff',
+                      '0 0 8px #87CEEB'
+                    ],
+                    opacity: [0.8, 1, 0.8]
+                  }}
+                  transition={{
+                    repeat: Infinity,
+                    duration: 1 + Math.random(),
+                    ease: 'easeInOut',
+                    delay: Math.random()
+                  }}
+                />
+              ))}
 
               {/* Image container */}
               <div className="absolute inset-16 md:inset-20 rounded-full overflow-hidden border-2 border-sky-500/30 flex items-center justify-center">
