@@ -108,81 +108,22 @@ const Hero = () => {
               {/* Neon glow effect */}
               <div className="absolute inset-0 bg-sky-500/20 blur-xl" />
 
-              {/* Jumping Electrons Effect */}
-              {Array.from({ length: 18 }).map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute rounded-full bg-sky-400 shadow-lg"
-                  style={{
-                    width: '0.7rem',
-                    height: '0.7rem',
-                    left: `${200 + 110 * Math.cos((i / 18) * 2 * Math.PI)}px`,
-                    top: `${200 + 110 * Math.sin((i / 18) * 2 * Math.PI)}px`,
-                    zIndex: 2,
-                  }}
-                  animate={{
-                    x: [0, Math.random() * 20 - 10, 0],
-                    y: [0, Math.random() * 20 - 10, 0],
-                    boxShadow: [
-                      '0 0 8px #87CEEB',
-                      '0 0 16px #fff',
-                      '0 0 8px #87CEEB'
-                    ],
-                    opacity: [0.8, 1, 0.8]
-                  }}
-                  transition={{
-                    repeat: Infinity,
-                    duration: 1 + Math.random(),
-                    ease: 'easeInOut',
-                    delay: Math.random()
-                  }}
-                />
-              ))}
-
-              {/* Thunderstorm Sparks Effect */}
-              <motion.svg
+              {/* Cartoon Sparkling Electrical Effect */}
+              <svg
                 className="absolute inset-0 w-full h-full pointer-events-none"
                 viewBox="0 0 420 420"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                {Array.from({ length: 12 }).map((_, i) => {
-                  // Randomize start/end points around the circle
-                  const angle = (i / 12) * 2 * Math.PI;
-                  const startX = 210 + 110 * Math.cos(angle);
-                  const startY = 210 + 110 * Math.sin(angle);
-                  const midX = startX + Math.random() * 30 - 15;
-                  const midY = startY + Math.random() * 30 - 15;
-                  const endX = startX + Math.random() * 60 - 30;
-                  const endY = startY + Math.random() * 60 - 30;
-                  return (
-                    <motion.polyline
-                      key={i}
-                      points={`${startX},${startY} ${midX},${midY} ${endX},${endY}`}
-                      stroke="#87CEEB"
-                      strokeWidth={2 + Math.random()}
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      initial={{ opacity: 0, pathLength: 0 }}
-                      animate={{ 
-                        opacity: [0, 1, 0], 
-                        pathLength: [0, 1, 0],
-                        filter: [
-                          'drop-shadow(0 0 8px #87CEEB)',
-                          'drop-shadow(0 0 16px #fff)',
-                          'drop-shadow(0 0 8px #87CEEB)'
-                        ]
-                      }}
-                      transition={{
-                        repeat: Infinity,
-                        duration: 0.7 + Math.random(),
-                        delay: Math.random() * 1.5,
-                        ease: 'easeInOut'
-                      }}
-                    />
-                  );
-                })}
-              </motion.svg>
+                {/* Example spark shapes */}
+                <polyline points="210,40 220,60 200,80 230,100" stroke="#FFD700" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+                <polyline points="60,210 80,220 60,240 90,260" stroke="#87CEEB" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                <polyline points="350,210 370,230 350,250 380,270" stroke="#FFD700" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                <polyline points="210,380 220,360 200,340 230,320" stroke="#87CEEB" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+                <polyline points="120,60 140,80 120,100" stroke="#FFD700" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                <polyline points="300,60 320,80 300,100" stroke="#87CEEB" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                {/* Add more for density and fun */}
+              </svg>
 
               {/* Image container */}
               <div className="absolute inset-16 md:inset-20 rounded-full overflow-hidden border-2 border-sky-500/30 flex items-center justify-center">
