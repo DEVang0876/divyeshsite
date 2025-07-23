@@ -31,7 +31,7 @@ const Footer = () => {
             ))}
           </div>
           <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} Devang Dhandhukiya. All rights reserved.
+            © {new Date().getFullYear()} Deviiinee.Ai and Team All rights reserved.
           </p>
         </div>
       </div>

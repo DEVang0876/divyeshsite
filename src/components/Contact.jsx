@@ -134,7 +134,7 @@ const Contact = () => {
       const emailData = {
         to: formData.email,
         subject: 'Thank you for contacting us',
-        message: `Dear ${formData.name},\n\nThank you for reaching out to us. We've received your message and will get back to you soon.\n\nBest regards,\nDEvang Dhandhukiya`
+        message: `Dear ${formData.name},\n\nThank you for reaching out to us. We've received your message and will get back to you soon.\n\nBest regards,\nDivyesh Dhandhukiya`
       };
       
       await functions.createExecution(
