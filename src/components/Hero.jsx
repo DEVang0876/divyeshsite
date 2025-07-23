@@ -108,7 +108,51 @@ const Hero = () => {
             <div className="relative w-[20rem] md:w-[26rem] h-[20rem] md:h-[26rem] mx-auto">
               {/* Neon glow effect */}
               <div className="absolute inset-0 bg-sky-500/20 blur-xl" />
-              
+
+              {/* Electric Spark Effect */}
+              <motion.svg
+                className="absolute inset-0 w-full h-full pointer-events-none"
+                viewBox="0 0 420 420"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                initial={{ opacity: 0.7 }}
+                animate={{ opacity: [0.7, 1, 0.7], filter: ['drop-shadow(0 0 8px #87CEEB)', 'drop-shadow(0 0 16px #fff)', 'drop-shadow(0 0 8px #87CEEB)'] }}
+                transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
+              >
+                {/* Example jagged sparks */}
+                <motion.polyline
+                  points="210,20 220,40 200,60 230,80 210,100"
+                  stroke="#87CEEB"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: [0, 1, 0] }}
+                  transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut', delay: 0.2 }}
+                />
+                <motion.polyline
+                  points="60,210 80,220 60,240 90,260 70,280"
+                  stroke="#fff"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: [0, 1, 0] }}
+                  transition={{ repeat: Infinity, duration: 1.2, ease: 'easeInOut', delay: 0.5 }}
+                />
+                <motion.polyline
+                  points="350,210 370,230 350,250 380,270 360,290"
+                  stroke="#87CEEB"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: [0, 1, 0] }}
+                  transition={{ repeat: Infinity, duration: 1.7, ease: 'easeInOut', delay: 0.8 }}
+                />
+                {/* Add more sparks for effect */}
+              </motion.svg>
+
               {/* Rotating circles */}
               <motion.div
                 animate={{ rotate: 360 }}
@@ -151,4 +195,4 @@ const Hero = () => {
   );
 };
 
-export default Hero; 
+export default Hero;
