@@ -115,21 +115,25 @@ const Hero = () => {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                {/* Animated electrical sparks */}
-                {[...Array(10)].map((_, i) => {
-                  // Randomize position and shape for each spark
-                  const angle = (i / 10) * 2 * Math.PI;
-                  const r = 170 + Math.random() * 20;
-                  const x1 = 210 + r * Math.cos(angle);
-                  const y1 = 210 + r * Math.sin(angle);
-                  const x2 = x1 + Math.random() * 30 - 15;
-                  const y2 = y1 + Math.random() * 30 - 15;
-                  const x3 = x2 + Math.random() * 30 - 15;
-                  const y3 = y2 + Math.random() * 30 - 15;
+                {/* Animated thunderstorm lightning bolts */}
+                {[...Array(12)].map((_, i) => {
+                  // Position bolts around the circle
+                  const angle = (i / 12) * 2 * Math.PI;
+                  const startX = 210 + 110 * Math.cos(angle);
+                  const startY = 210 + 110 * Math.sin(angle);
+
+                  // Create a zigzag/forked pattern
+                  const midX1 = startX + Math.random() * 30 - 15;
+                  const midY1 = startY + Math.random() * 30 - 15;
+                  const midX2 = midX1 + Math.random() * 30 - 15;
+                  const midY2 = midY1 + Math.random() * 30 - 15;
+                  const endX = midX2 + Math.random() * 40 - 20;
+                  const endY = midY2 + Math.random() * 40 - 20;
+
                   return (
                     <motion.polyline
                       key={i}
-                      points={`${x1},${y1} ${x2},${y2} ${x3},${y3}`}
+                      points={`${startX},${startY} ${midX1},${midY1} ${midX2},${midY2} ${endX},${endY}`}
                       stroke={i % 2 === 0 ? "#FFD700" : "#87CEEB"}
                       strokeWidth={3 + Math.random()}
                       strokeLinecap="round"
@@ -139,15 +143,15 @@ const Hero = () => {
                         opacity: [0, 1, 0],
                         pathLength: [0, 1, 0],
                         filter: [
-                          'drop-shadow(0 0 8px #FFD700)',
-                          'drop-shadow(0 0 16px #87CEEB)',
-                          'drop-shadow(0 0 8px #FFD700)'
+                          'drop-shadow(0 0 12px #FFD700)',
+                          'drop-shadow(0 0 24px #87CEEB)',
+                          'drop-shadow(0 0 12px #FFD700)'
                         ]
                       }}
                       transition={{
                         repeat: Infinity,
-                        duration: 0.7 + Math.random(),
-                        delay: Math.random() * 1.5,
+                        duration: 0.6 + Math.random(),
+                        delay: Math.random() * 1.2,
                         ease: 'easeInOut'
                       }}
                     />
